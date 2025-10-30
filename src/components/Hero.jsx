@@ -1,11 +1,11 @@
 import { Calendar, Image as ImageIcon, Users } from "lucide-react";
-import Spline from "@splinetool/react-spline";
+import SafeSpline from "./SafeSpline";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/6cHjWm1Qz3OqKc0C/scene.splinecode" style={{ width: "100%", height: "100%" }} />
+        <SafeSpline scene="https://prod.spline.design/6cHjWm1Qz3OqKc0C/scene.splinecode" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/60 via-white/70 to-white" />
       </div>
 

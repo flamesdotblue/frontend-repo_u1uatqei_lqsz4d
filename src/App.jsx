@@ -2,13 +2,37 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TemplatesShowcase from "./components/TemplatesShowcase";
 import Pricing from "./components/Pricing";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 export default function App() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navbar />
       <main>
-        <Hero />
+        <ErrorBoundary
+          fallback={
+            <section className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-b from-indigo-50 via-white to-pink-50" />
+              <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="flex flex-col items-center py-20 sm:py-28 text-center">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-medium text-slate-700 shadow-sm">
+                    <span className="h-2 w-2 rounded-full bg-yellow-500" />
+                    3D preview unavailable — showing static hero
+                  </span>
+                  <h1 className="mt-6 max-w-3xl text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+                    Create beautiful, interactive event pages with Eventify
+                  </h1>
+                  <p className="mt-5 max-w-2xl text-base text-slate-600 sm:text-lg">
+                    Pick a template, customize the look, manage RSVPs, and collect guest photos — all in one place.
+                  </p>
+                </div>
+              </div>
+            </section>
+          }
+        >
+          <Hero />
+        </ErrorBoundary>
+
         <section id="features" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <FeatureCard
